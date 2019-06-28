@@ -10,31 +10,20 @@ import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.popup.JBPopupFactory;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class IdeaUpload extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
+        final Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
         SampleDialogWrapper dialog = new SampleDialogWrapper();
 
         Boolean result = dialog.showAndGet();
         String comment = dialog.commentArea.getText();
-
-        //Get all the required data from data keys
-        final Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
-        final Document document = editor.getDocument();
-        final SelectionModel selectionModel = editor.getSelectionModel();
-
-        String path = FileDocumentManager.getInstance().getFile(document).getPath();
-
-        Notifications.Bus.notify(
-                new Notification("codcut", dialog.commentArea.getText(), path, NotificationType.INFORMATION));
-
-        String extension = Pattern.compile(".*\\.(.*)$").matcher(path).group(1);
-        String code = selectionModel.getSelectedText();
+        String extension = getFileExtension(editor);
+        String code = getSelection(editor);
 
         Notifications.Bus.notify(
                 new Notification("codcut", dialog.commentArea.getText(),
@@ -43,5 +32,20 @@ public class IdeaUpload extends AnAction {
                         NotificationType.INFORMATION)
         );
 
+    }
+
+    private String getFileExtension(Editor editor) {
+        Document document = editor.getDocument();
+        String path = FileDocumentManager.getInstance().getFile(document).getPath();
+        Matcher matcher = Pattern.compile(".*\\.(.*)$").matcher(path);
+
+        matcher.matches();
+
+        return matcher.group(1);
+    }
+
+    private String getSelection(Editor editor) {
+        SelectionModel selectionModel = editor.getSelectionModel();
+        return selectionModel.getSelectedText();
     }
 }
