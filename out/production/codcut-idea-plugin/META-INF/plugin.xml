@@ -37,4 +37,11 @@
     </action>
   </actions>
 
+  <extensions defaultExtensionNs="com.intellij">
+    <projectConfigurable displayName="Codcut"
+                         id="preferences.CodcutPlugin"
+                         instance="com.codcut.CodcutSettingsGUI" />
+    <projectService serviceImplementation="com.codcut.CodcutSettings"/>
+  </extensions>
+
 </idea-plugin>

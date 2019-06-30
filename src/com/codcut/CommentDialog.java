@@ -6,10 +6,10 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 import java.awt.*;
 
-public class SampleDialogWrapper extends DialogWrapper {
+public class CommentDialog extends DialogWrapper {
     JTextArea commentArea;
 
-    public SampleDialogWrapper() {
+    public CommentDialog() {
         super(true); // use current window as parent
         init();
         setTitle("Upload snippet to codcut");
@@ -26,6 +26,7 @@ public class SampleDialogWrapper extends DialogWrapper {
 
         commentArea = new JTextArea();
         commentArea.setPreferredSize(new Dimension(200, 200));
+        commentArea.grabFocus();
         dialogPanel.add(commentArea, BorderLayout.CENTER);
 
         return dialogPanel;
