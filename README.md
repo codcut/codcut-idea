@@ -9,5 +9,5 @@ Install this plugin through the *Plugin Manager*.
 3) Highlight some code;
 4) Press `Ctrl + Alt + U`.
 
-# Credits
+## :sparkles: Credits
 Big thanks to the [scalafmt project](https://github.com/scalameta/scalafmt) and their Intellij plugin.
