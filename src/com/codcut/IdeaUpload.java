@@ -26,7 +26,7 @@ public class IdeaUpload extends AnAction {
     final private String errorText = "Something went wrong. Please try again later";
     final private String noFileExtWarn = "Could not find file extension, uploading as plain";
 
-    final private String codcutUrl = "https://resource.codcut.com/posts";
+    final private String codcutUrl = "https://resource.codcut.com/api/posts";
     final private OkHttpClient client = new OkHttpClient();
 
     private ObjectMapper mapper = new ObjectMapper();
