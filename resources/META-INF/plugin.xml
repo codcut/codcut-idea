@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.codcut</id>
   <name>Codcut</name>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <vendor email="info@codcut.com" url="https://codcut.com">Codcut</vendor>
 
   <description>Share pieces of code to Codcut directly from your IDE.</description>
