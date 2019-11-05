@@ -61,7 +61,7 @@ public class IdeaUpload extends AnAction {
 
         ObjectNode requestJson = mapper.createObjectNode();
         requestJson.put("code", code);
-        requestJson.put("comment", comment);
+        requestJson.put("body", comment);
         requestJson.put("language", extension);
 
         RequestBody body =

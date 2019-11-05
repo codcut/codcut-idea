@@ -21,11 +21,11 @@ public class CommentDialog extends DialogWrapper {
         JPanel dialogPanel = new JPanel(new BorderLayout());
 
         JLabel label = new JLabel("Leave a comment");
-        label.setPreferredSize(new Dimension(100, 100));
+        label.setPreferredSize(new Dimension(100, 30));
         dialogPanel.add(label, BorderLayout.PAGE_START);
 
         commentArea = new JTextArea();
-        commentArea.setPreferredSize(new Dimension(200, 200));
+        commentArea.setPreferredSize(new Dimension(400, 100));
         commentArea.grabFocus();
         dialogPanel.add(commentArea, BorderLayout.CENTER);
 
