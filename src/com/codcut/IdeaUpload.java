@@ -76,7 +76,7 @@ public class IdeaUpload extends AnAction {
         try (Response response = client.newCall(request).execute()) {
             String text = response.body().string();
 
-            info(text);
+            // info(text);
 
             CodcutResponse codcutResponse = mapper.readValue(text, CodcutResponse.class);
             String postUrl = "https://codcut.com/posts/" + codcutResponse.getId();
